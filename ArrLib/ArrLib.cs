@@ -2,12 +2,8 @@
 
 public static class ArrLib
 {
-    public static bool StartsWithUpper(this string? str)
+    public static int calcSumMinElements(int[] grade, int take = 2)
     {
-        if (string.IsNullOrWhiteSpace(str))
-            return false;
-
-        char ch = str[0];
-        return char.IsUpper(ch);
+        return grade.OrderBy(g => g).Take(take).Sum();
     }
 }
