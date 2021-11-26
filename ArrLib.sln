@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrLib", "ArrLib\ArrLib.csproj", "{7FFA5AC7-23AA-4D69-8AF6-2F66032FF726}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowCase", "ShowCase\ShowCase.csproj", "{0710EF3E-0190-4225-BACB-BBCE2BD6F8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrLibTest", "ArrLibTest\ArrLibTest.csproj", "{091FDACB-93C3-4646-A556-53F1D268C1D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FFA5AC7-23AA-4D69-8AF6-2F66032FF726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FFA5AC7-23AA-4D69-8AF6-2F66032FF726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FFA5AC7-23AA-4D69-8AF6-2F66032FF726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FFA5AC7-23AA-4D69-8AF6-2F66032FF726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0710EF3E-0190-4225-BACB-BBCE2BD6F8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0710EF3E-0190-4225-BACB-BBCE2BD6F8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0710EF3E-0190-4225-BACB-BBCE2BD6F8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0710EF3E-0190-4225-BACB-BBCE2BD6F8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091FDACB-93C3-4646-A556-53F1D268C1D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091FDACB-93C3-4646-A556-53F1D268C1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091FDACB-93C3-4646-A556-53F1D268C1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091FDACB-93C3-4646-A556-53F1D268C1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
