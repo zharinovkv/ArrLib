@@ -1,5 +1,5 @@
 start:
 		sudo dotnet60 run --project ShowCase/ShowCase.csproj
 
-tests:
+test:
 		sudo dotnet60 test ArrLibTest/ArrLibTest.csproj

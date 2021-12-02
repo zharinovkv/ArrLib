@@ -1,51 +1,74 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UtilityLibraries;
+using ArrayLibrary;
 
-namespace ArrLibTest;
+namespace NumbersTest;
 
 [TestClass]
-public class ArrLibTest
+public class NumbersTest
 {
-    [TestMethod]
-    public void TestStartsWithUpper()
+    [DataRow(new int[] { }, 0)]
+    [DataRow(new int[] { 0 }, 0)]
+    [DataRow(new int[] { -10 }, -10)]
+    [DataRow(new int[] { 0, -10 }, -10)]
+    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, -10)]
+    [DataTestMethod]
+    public void sumTwoMinNumbersTest(int[] nums, int result)
     {
-        // Tests that we expect to return true.
-        string[] words = { "Alphabet", "Zebra", "ABC", "Αθήνα", "Москва" };
-        foreach (var word in words)
-        {
-            bool result = word.StartsWithUpper();
-            Assert.IsTrue(result,
-                   String.Format("Expected for '{0}': true; Actual: {1}",
-                                 word, result));
-        }
+        var numbers = new Numbers(new ArrayPreparer(nums));
+        var actual = numbers.sumTwoMinNumbers();
+        Assert.AreEqual(result, actual);
     }
 
     [TestMethod]
-    public void TestDoesNotStartWithUpper()
+    public void BigArrayTest()
     {
-        // Tests that we expect to return false.
-        string[] words = { "alphabet", "zebra", "abc", "αυτοκινητοβιομηχανία", "государство",
-                               "1234", ".", ";", " " };
-        foreach (var word in words)
-        {
-            bool result = word.StartsWithUpper();
-            Assert.IsFalse(result,
-                   String.Format("Expected for '{0}': false; Actual: {1}",
-                                 word, result));
-        }
+        int[] nums = NumbersTest.arr(); //new int[100000000];
+        // for (int i = 0; i < 100000000; i++)
+        // {
+        //     nums[i] = i;
+        // }
+        var numbers = new Numbers(new ArrayPreparer(nums));
+        Assert.AreEqual(1, numbers.sumTwoMinNumbers());
     }
 
+    public int[] FullName => new int[100000000];
+
     [TestMethod]
-    public void DirectCallWithNullOrEmpty()
+    public void NullArrayTest()
     {
-        // Tests that we expect to return false.
-        string?[] words = { string.Empty, null };
-        foreach (var word in words)
+        int[] nums = new int[100000000];
+        var numbers = new Numbers(new ArrayPreparer(FullName));
+        Assert.AreEqual(0, numbers.sumTwoMinNumbers());
+    }
+
+    private static int[] arr(int lenth = 100000000)
+    {
+        int[] nums = new int[lenth];
+        for (int i = 0; i < lenth; i++)
         {
-            bool result = StringLibrary.StartsWithUpper(word);
-            Assert.IsFalse(result,
-                   String.Format("Expected for '{0}': false; Actual: {1}",
-                                 word == null ? "<null>" : word, result));
+            nums[i] = i;
         }
+        return nums;
     }
 }
+
+
+/* 
+
+Напишите функцию, на вход которой приходит массив чисел. 
+Функция возвращает сумму двух минимальных элементов массива.
+
+Например, если дан массив [4, 0, 3, 19, 492, -10, 1], то результатом будет -10, потому что два минимальных числа -10 и 0, а их сумма -10.
+Напишите минимум 3 модульных теста на эту функцию.
+
+HINT: учти, что 
+
+массив может быть пустым, 
+или без цифр 
+или состоять из 100 млн. элементов, 
+
+поэтому надо учесть разные граничные условия.
+Не спешите – главный ориентир всегда – качество.  
+
+*/

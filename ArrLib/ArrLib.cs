@@ -1,9 +1,26 @@
-﻿namespace UtilityLibraries;
+﻿namespace ArrayLibrary;
 
-public static class ArrLib
+public class Numbers
 {
-    public static int calcSumMinElements(int[] grade, int take = 2)
+    public int[] Nums;
+    
+    public Numbers(ArrayPreparer arrayPreparer)
     {
-        return grade.OrderBy(g => g).Take(take).Sum();
+        Nums = arrayPreparer.Nums;
+    }
+
+    public int sumTwoMinNumbers()
+    {
+        if (Nums.Length == 0)
+        {
+            return 0;
+        }
+
+        if (Nums.Length == 1)
+        {
+            return Nums[0];
+        }
+
+        return Nums.OrderBy(n => n).Take(2).Sum();
     }
 }

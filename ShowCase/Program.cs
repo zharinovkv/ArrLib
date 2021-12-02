@@ -1,12 +1,21 @@
-﻿using UtilityLibraries;
+﻿using ArrayLibrary;
 
 class Program
 {
     static void Main(string[] args)
     {
+        //int[] nums = { 4, 0, 3, 19, 492, -10, 1 };
 
-        int[] grade = {4, 0, 3, 19, 492, -10, 1};
-        int result = ArrLib.calcSumMinElements(grade);
-        Console.WriteLine(result);
+//        int[] nums = { };
+
+        int[] nums = new int[] { };
+
+
+
+        Numbers numbers = new Numbers(new ArrayPreparer(nums));
+
+        int sum = numbers.sumTwoMinNumbers();
+
+        Console.WriteLine(sum);
     }
 }
