@@ -1,4 +1,5 @@
-
+![example workflow](https://github.com/zharinovkv/ArrLib/actions/workflows/dotnet.yml/badge.svg)
+                    
 
 Напишите функцию, на вход которой приходит массив чисел. 
 Функция возвращает сумму двух минимальных элементов массива.
