@@ -6,13 +6,10 @@ public class ArrayPreparer
 
     public ArrayPreparer(int[] nums)
     {
-        if (nums?.Length != 0)
+        if (nums.Length < 2)
         {
-            Nums = nums.Where(x => x != null).ToArray();
+            throw new ArrayException("Array length less 2 is not allowed");
         }
-        else
-        {
-            Nums = nums;
-        }
+        Nums = nums;
     }
 }

@@ -7,50 +7,52 @@ namespace NumbersTest;
 [TestClass]
 public class NumbersTest
 {
-    [DataRow(new int[] { }, 0)]
-    [DataRow(new int[] { 0 }, 0)]
-    [DataRow(new int[] { -10 }, -10)]
     [DataRow(new int[] { 0, -10 }, -10)]
     [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, -10)]
     [DataTestMethod]
-    public void sumTwoMinNumbersTest(int[] nums, int result)
+    public void sumOfTwoMinNumbersTest(int[] nums, int result)
     {
         var numbers = new Numbers(new ArrayPreparer(nums));
-        var actual = numbers.sumTwoMinNumbers();
+        var actual = numbers.sumOfTwoMinNumbers();
         Assert.AreEqual(result, actual);
     }
 
     [TestMethod]
     public void BigArrayTest()
     {
-        int[] nums = NumbersTest.arr(); //new int[100000000];
-        // for (int i = 0; i < 100000000; i++)
-        // {
-        //     nums[i] = i;
-        // }
+        int[] nums = BigArray();
         var numbers = new Numbers(new ArrayPreparer(nums));
-        Assert.AreEqual(1, numbers.sumTwoMinNumbers());
+        Assert.AreEqual(1, numbers.sumOfTwoMinNumbers());
     }
 
-    public int[] FullName => new int[100000000];
-
-    [TestMethod]
-    public void NullArrayTest()
+    [DataRow(new int[] { }, "Array length less 2 is not allowed")]
+    [DataRow(new int[] { 0 }, "Array length less 2 is not allowed")]
+    [DataTestMethod]
+    public void ExceptionTest(int[] nums, string result)
     {
-        int[] nums = new int[100000000];
-        var numbers = new Numbers(new ArrayPreparer(FullName));
-        Assert.AreEqual(0, numbers.sumTwoMinNumbers());
+        try
+        {
+            new Numbers(new ArrayPreparer(nums)).sumOfTwoMinNumbers();
+        }
+        catch (ArrayException ae)
+        {
+            Assert.AreEqual(result, ae.Message);
+        }
     }
 
-    private static int[] arr(int lenth = 100000000)
+
+    public int[] BigArray(int length = 100000000)
     {
-        int[] nums = new int[lenth];
-        for (int i = 0; i < lenth; i++)
+        int[] nums = new int[length];
+        for (int i = 0; i < length; i++)
         {
             nums[i] = i;
         }
         return nums;
     }
+
+
+
 }
 
 
