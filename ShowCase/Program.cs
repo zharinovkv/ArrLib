@@ -6,10 +6,16 @@ class Program
     {
         int[] nums = { 4, 0, 3, 19, 492, -10, 1 };
 
-        Numbers numbers = new Numbers(new ArrayPreparer(nums));
+        var numbers = new Numbers(new ArrayPreparer(nums), 2).Sum;
 
-        int sum = numbers.sumOfTwoMinNumbers();
-
-        Console.WriteLine(sum);
+        try
+        {
+//            int sum = numbers.sumOfMinNumbers(2)(nums);
+            Console.WriteLine(numbers);
+        }
+        catch (ArrayException ex)
+        {
+            Console.WriteLine($"Exception thrown {ex.Message}");
+        }
     }
 }
