@@ -1,13 +1,16 @@
 ![example workflow](https://github.com/zharinovkv/ArrLib/actions/workflows/dotnet.yml/badge.svg)
 
 make r
+
 Run the app
 
 make t
+
 Tests the library
 
 
 > Напишите функцию, на вход которой приходит массив чисел. 
+
 Функция min2sum() находится в Numbers.cs(26).
 
 ***
