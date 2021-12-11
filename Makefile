@@ -1,15 +1,17 @@
-start:
+r:
 		sudo dotnet run --project ShowCase/ShowCase.csproj
 
-test:
-		sudo dotnet test
-
-build: 
-		sudo dotnet build
-
-r:
+rn:
 		sudo dotnet run --no-build --project ShowCase/ShowCase.csproj
 
-format:
+b: 
+		sudo dotnet build
+
+t:
+		sudo dotnet test
+
+f:
 		sudo dotnet format ArrLib.sln
 
+c:
+		sudo dotnet clean ArrLib.sln
