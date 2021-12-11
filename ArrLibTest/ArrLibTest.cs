@@ -19,7 +19,7 @@ public class NumbersTest
     [DataRow(new int[] { 0, -10 , 4}, -2.0)]
     [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, 171.6666666666666667)]
     [DataTestMethod]
-    public void averageOfThreeMaxNumbersTest(int[] nums, System.Double assert)
+    public void averageOfThreeMaxNumbersTest(int[] nums, double assert)
     {
         var result = new Numbers("max3average", nums).Result;
         Assert.AreEqual(result, assert);

@@ -1,5 +1,4 @@
-﻿using System;
-using ArrayLibrary;
+﻿using ArrayLibrary;
 
 class Program
 {
@@ -7,7 +6,7 @@ class Program
     {
         int[] nums = { 4, 0, 3, 19, 492, -10, 1 };
 
-        var result = new Numbers("min2sum", nums).Result;
+        double result = new Numbers("min2sum", nums).Result;
 
         Console.WriteLine(result);
     }

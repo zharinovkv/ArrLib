@@ -1,5 +1,4 @@
-﻿using System;
-namespace ArrayLibrary;
+﻿namespace ArrayLibrary;
 
 public class Numbers
 {
