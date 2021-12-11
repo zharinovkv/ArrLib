@@ -1,4 +1,5 @@
-﻿using ArrayLibrary;
+﻿using System;
+using ArrayLibrary;
 
 class Program
 {
