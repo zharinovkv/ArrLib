@@ -2,41 +2,51 @@
 
 public class Numbers
 {
-    public int Sum;
+    public double Result;
 
-    public Numbers(ArrayPreparer preparer, int param)
+    private Dictionary<string, Func<int[], double>> Funcs = new Dictionary<string, Func<int[], double>>{
+        {"min2sum", min2sum },
+        {"max3average", max3average },
+        {"evenSum", evenSum }
+    };
+
+    public Numbers(string func, int[] nums)
     {
-        Sum = sumOfMinNumbers(preparer, param);
-    }
-
-    public static int sumOfMinNumbers(ArrayPreparer preparer, int param)
-    {
-        return selectFunc(param)(preparer.Nums);
-    }
-
-    public delegate int Operation(int[] x);
-    private static Operation selectFunc(int param)
-    {
-        Operation op;
-
-        switch (param)
+        try
         {
-            case 2:
-                return op = (x) => x.OrderBy(n => n).Take(2).Sum();
-            case 3:
-                return op = (x) => x.OrderBy(n => n).Take(3).Sum();
-            default:
-                throw new ArrayException("Operation not found");
+            Result = Funcs[func](nums);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception  \"Operation not found by reason: {ex.Message}\"");
         }
     }
 
+    static double min2sum(int[] nums)
+    {
+        if (nums.Length < 2)
+        {
+            throw new Exception("Array length less 2 is not allowed");
+        }
 
+        return nums.OrderBy(n => n).Take(2).Sum();
+    }
+    static double max3average(int[] nums)
+    {
+        if (nums.Length < 3)
+        {
+            throw new Exception("Array length less 3 is not allowed");
+        }
 
+        return nums.OrderByDescending(n => n).Take(3).Average();
+    }
+    static double evenSum(int[] nums)
+    {
+        if (nums.Length < 1)
+        {
+            throw new Exception("Array length less 1 is not allowed");
+        }
 
-
-
-    // public int sumOf2MinNumbers(int take = 2)
-    // {
-    //     return Nums.OrderBy(n => n).Take(take).Sum();
-    // }
+        return nums.Where(n => n % 2 == 0).Sum();
+    }
 }
