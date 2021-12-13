@@ -6,8 +6,8 @@ class Program
     {
         int[] nums = { 4, 0, 3, 19, 492, -10, 1 };
 
-        double result = new Numbers("min2sum", nums).Result;
+        Numbers numbers = new Numbers("sum2MinNums", nums);
 
-        Console.WriteLine(result);
+        Console.WriteLine(numbers.Result);
     }
 }
