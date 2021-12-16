@@ -17,7 +17,7 @@ public class NumbersTest
     }
 
     [TestMethod]
-    public void testSum2MinNumsWithLongArray()
+    public void testSum2MinNums_WithLongArray()
     {
         int[] nums = array();
         var numbers = new Numbers("sum2MinNums", nums);
@@ -34,8 +34,15 @@ public class NumbersTest
         }
     }
 
-    [DataRow(new int[] { 0, -10 }, -10)]
-    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, 486)]
+    [TestMethod]
+    public void testSum2MinNums_WithLongEmptyArray()
+    {
+        int[] nums = new int[100000000];
+        var numbers = new Numbers("sum2MinNums", nums);
+        Assert.AreEqual(0, numbers.Result);
+    }
+
+    [DataRow(new int[] { 2, -10 }, -8)]
     [DataTestMethod]
     public void testSumEvenNums(int[] nums, int expected)
     {
