@@ -8,6 +8,6 @@ class Program
 
         Numbers numbers = new Numbers("sum2MinNums", nums);
 
-        Console.WriteLine(numbers.Result);
+        Console.WriteLine(numbers.getValue());
     }
 }

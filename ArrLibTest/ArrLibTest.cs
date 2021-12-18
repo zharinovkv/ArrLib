@@ -1,6 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ArrayLibrary;
+using System.Linq;
 
 namespace NumbersTest;
 
@@ -13,25 +14,15 @@ public class NumbersTest
     public void testSum2MinNums(int[] nums, int expected)
     {
         var numbers = new Numbers("sum2MinNums", nums);
-        Assert.AreEqual(expected, numbers.Result);
+        Assert.AreEqual(expected, numbers.getValue());
     }
 
     [TestMethod]
     public void testSum2MinNums_WithLongArray()
     {
-        int[] nums = array();
+        int[] nums = Enumerable.Range(0, 100000000).ToArray();
         var numbers = new Numbers("sum2MinNums", nums);
-        Assert.AreEqual(1, numbers.Result);
-
-        int[] array(int length = 100000000)
-        {
-            int[] nums = new int[length];
-            for (int i = 0; i < length; i++)
-            {
-                nums[i] = i;
-            }
-            return nums;
-        }
+        Assert.AreEqual(1, numbers.getValue());
     }
 
     [TestMethod]
@@ -39,7 +30,7 @@ public class NumbersTest
     {
         int[] nums = new int[100000000];
         var numbers = new Numbers("sum2MinNums", nums);
-        Assert.AreEqual(0, numbers.Result);
+        Assert.AreEqual(0, numbers.getValue());
     }
 
     [DataRow(new int[] { 2, -10 }, -8)]
@@ -47,6 +38,6 @@ public class NumbersTest
     public void testSumEvenNums(int[] nums, int expected)
     {
         var numbers = new Numbers("sumEvenNums", nums);
-        Assert.AreEqual(expected, numbers.Result);
+        Assert.AreEqual(expected, numbers.getValue());
     }
 }

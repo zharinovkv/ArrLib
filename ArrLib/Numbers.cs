@@ -1,18 +1,22 @@
-﻿using System;
-
-namespace ArrayLibrary;
+﻿namespace ArrayLibrary;
 
 public class Numbers
 {
-    public int? Result;
-    private Dictionary<string, Func<int[], int>> Funcs = new Dictionary<string, Func<int[], int>>
+    private DataContainer Result;
+
+    private Dictionary<string, Func<int[], DataContainer>> Funcs = new Dictionary<string, Func<int[], DataContainer>>
     {
-        {"sum2MinNums", nums => nums.Length >= 2 ? nums.OrderBy(n => n).Take(2).Sum() :
-            throw new Exception("Array length less 2 is not allowed")},
-        {"sumEvenNums", nums => nums.Length >= 1 ? nums.Where(n => n % 2 == 0).Sum() :
+        {"sum2MinNums", nums => nums.Length >= 2 ? nums.OrderBy(n => n).Take(2).Sum().toContainer() :
+            throw new Exception("Array length less 1 is not allowed")},
+        {"sumEvenNums", nums => nums.Length >= 1 ? nums.Where(n => n % 2 == 0).Sum().toContainer() :
+            throw new Exception("Array length less 1 is not allowed")},
+        {"averageNums", nums => nums.Length >= 1 ? nums.Average().toContainer() :
+            throw new Exception("Array length less 1 is not allowed")},
+        {"toString", nums => nums.Length >= 1 ? string.Join(" ", nums).toContainer() :
+            throw new Exception("Array length less 1 is not allowed")},
+        {"oddNumsArray", nums => nums.Length >= 1 ? nums.Where(n => n % 2 != 0).ToArray().toContainer() :
             throw new Exception("Array length less 1 is not allowed")}
     };
-
     public Numbers(string func, int[] nums)
     {
         try
@@ -24,4 +28,10 @@ public class Numbers
             Console.WriteLine(ex.Message);
         }
     }
+
+    public int getValue()
+    {
+        return this.Result.intValue;
+    }
+
 }
