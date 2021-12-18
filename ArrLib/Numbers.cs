@@ -2,9 +2,10 @@
 
 public class Numbers
 {
-    private DataContainer Result;
+    private Tuple<Int32?, Double?, String?, Array?>? Result;
 
-    private Dictionary<string, Func<int[], DataContainer>> Funcs = new Dictionary<string, Func<int[], DataContainer>>
+    private Dictionary<string, Func<int[], Tuple<Int32?, Double?, String?, Array?>>> Functions =
+        new Dictionary<string, Func<int[], Tuple<Int32?, Double?, String?, Array?>>>
     {
         {"sum2MinNums", nums => nums.Length >= 2 ? nums.OrderBy(n => n).Take(2).Sum().toContainer() :
             throw new Exception("Array length less 1 is not allowed")},
@@ -12,16 +13,17 @@ public class Numbers
             throw new Exception("Array length less 1 is not allowed")},
         {"averageNums", nums => nums.Length >= 1 ? nums.Average().toContainer() :
             throw new Exception("Array length less 1 is not allowed")},
-        {"toString", nums => nums.Length >= 1 ? string.Join(" ", nums).toContainer() :
+        {"toString", nums => nums.Length >= 1 ? string.Join(" ", nums).toContainer() : // string.Join(" ", nums).toContainer() :
             throw new Exception("Array length less 1 is not allowed")},
         {"oddNumsArray", nums => nums.Length >= 1 ? nums.Where(n => n % 2 != 0).ToArray().toContainer() :
             throw new Exception("Array length less 1 is not allowed")}
     };
-    public Numbers(string func, int[] nums)
+
+    public Numbers(string function, int[] nums)
     {
         try
         {
-            Result = Funcs[func](nums);
+            Result = Functions[function](nums);
         }
         catch (Exception ex)
         {
@@ -29,9 +31,23 @@ public class Numbers
         }
     }
 
-    public int getValue()
+    public Int32? getInteger()
     {
-        return this.Result.intValue;
+        return Result.Item1;
     }
 
+    public Double? getDouble()
+    {
+        return Result.Item2;
+    }
+
+    public String? getString()
+    {
+        return Result.Item3;
+    }
+
+    public Array? getArray()
+    {
+        return Result.Item4;
+    }
 }

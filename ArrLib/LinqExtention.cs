@@ -2,32 +2,23 @@ namespace ArrayLibrary;
 
 public static class LinqExtention
 {
-    public static DataContainer toContainer(this int value)
+    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this int value)
     {
-        DataContainer dataContainer = new DataContainer();
-        dataContainer.intValue = value;
-        return dataContainer;
+        return Tuple.Create<Int32?, Double?, String?, Array?>(value, null, null, null);
     }
 
-    public static DataContainer toContainer(this double value)
+    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this double value)
     {
-        DataContainer dataContainer = new DataContainer();
-        dataContainer.doubleValue = value;
-        return dataContainer;
+        return Tuple.Create<Int32?, Double?, String?, Array?>(null, value, null, null);
     }
 
-    public static DataContainer toContainer(this string value)
+    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this string value)
     {
-        DataContainer dataContainer = new DataContainer();
-        dataContainer.stringValue = value;
-        return dataContainer;
+        return Tuple.Create<Int32?, Double?, String?, Array?>(null, null, value, null);
     }
 
-    public static DataContainer toContainer(this int[] value)
+    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this Array value)
     {
-        DataContainer dataContainer = new DataContainer();
-        dataContainer.arrayValue = value;
-        return dataContainer;
+        return Tuple.Create<Int32?, Double?, String?, Array?>(null, null, null, value);
     }
-
 }
