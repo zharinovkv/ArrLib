@@ -2,23 +2,23 @@ namespace ArrayLibrary;
 
 public static class LinqExtention
 {
-    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this int value)
+    public static Tuple<int?, double?, string?, int[]?> toTuple(this int value)
     {
-        return Tuple.Create<Int32?, Double?, String?, Array?>(value, null, null, null);
+        return Tuple.Create<int?, double?, string?, int[]?>(value, null, null, null);
     }
 
-    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this double value)
+    public static Tuple<int?, double?, string?, int[]?> toTuple(this double value)
     {
-        return Tuple.Create<Int32?, Double?, String?, Array?>(null, value, null, null);
+        return Tuple.Create<int?, double?, string?, int[]?>(null, value, null, null);
     }
 
-    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this string value)
+    public static Tuple<int?, double?, string?, int[]?> toTuple(this string value)
     {
-        return Tuple.Create<Int32?, Double?, String?, Array?>(null, null, value, null);
+        return Tuple.Create<int?, double?, string?, int[]?>(null, null, value, null);
     }
 
-    public static Tuple<Int32?, Double?, String?, Array?> toContainer(this Array value)
+    public static Tuple<int?, double?, string?, int[]?> toTuple(this int[] value)
     {
-        return Tuple.Create<Int32?, Double?, String?, Array?>(null, null, null, value);
+        return Tuple.Create<int?, double?, string?, int[]?>(null, null, null, value);
     }
 }

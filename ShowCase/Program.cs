@@ -8,8 +8,8 @@ class Program
 
         Numbers numbers = new Numbers("sum2MinNums", nums);
 
-        Console.WriteLine(numbers.getInteger());
-
-        Console.WriteLine(new Numbers("toString", nums).getString());
+        Console.WriteLine(numbers.getItemInteger());
     }
 }
+
+

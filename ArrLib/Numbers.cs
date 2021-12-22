@@ -2,28 +2,33 @@
 
 public class Numbers
 {
-    private Tuple<Int32?, Double?, String?, Array?>? Result;
+    private Tuple<int?, double?, string?, int[]?>? Result;
 
-    private Dictionary<string, Func<int[], Tuple<Int32?, Double?, String?, Array?>>> Functions =
-        new Dictionary<string, Func<int[], Tuple<Int32?, Double?, String?, Array?>>>
+    private Dictionary<string, Func<int[], int, Tuple<int?, double?, string?, int[]?>?>> Funcs =
+        new Dictionary<string, Func<int[], int, Tuple<int?, double?, string?, int[]?>?>>
     {
-        {"sum2MinNums", nums => nums.Length >= 2 ? nums.OrderBy(n => n).Take(2).Sum().toContainer() :
-            throw new Exception("Array length less 1 is not allowed")},
-        {"sumEvenNums", nums => nums.Length >= 1 ? nums.Where(n => n % 2 == 0).Sum().toContainer() :
-            throw new Exception("Array length less 1 is not allowed")},
-        {"averageNums", nums => nums.Length >= 1 ? nums.Average().toContainer() :
-            throw new Exception("Array length less 1 is not allowed")},
-        {"toString", nums => nums.Length >= 1 ? string.Join(" ", nums).toContainer() : // string.Join(" ", nums).toContainer() :
-            throw new Exception("Array length less 1 is not allowed")},
-        {"oddNumsArray", nums => nums.Length >= 1 ? nums.Where(n => n % 2 != 0).ToArray().toContainer() :
-            throw new Exception("Array length less 1 is not allowed")}
+        {"sum2MinNums", (nums, slice) => isValidArray(nums, 2) ?
+            nums.OrderBy(n => n).Take(2).Sum().toTuple() :
+            null},
+        {"sumSliceNums", (nums, slice) => isValidArray(nums, slice) ?
+            nums.Take(slice).Sum().toTuple() :
+            null},
+        {"averageNums", (nums, slice) => isValidArray(nums, 1) ?
+            nums.Average().toTuple() :
+            null},
+        {"toString", (nums, slice) => isValidArray(nums, 1) ?
+            string.Join(" ", nums).toTuple() :
+            null},
+        {"oddNumsArray", (nums, slice) => isValidArray(nums, 1) ?
+            nums.Where(n => n % 2 != 0).ToArray().toTuple() :
+            null}
     };
 
-    public Numbers(string function, int[] nums)
+    public Numbers(string func, int[] nums, int slice = 0)
     {
         try
         {
-            Result = Functions[function](nums);
+            Result = Funcs[func](nums, slice);
         }
         catch (Exception ex)
         {
@@ -31,22 +36,28 @@ public class Numbers
         }
     }
 
-    public Int32? getInteger()
+    private static bool isValidArray(int[] nums, int? length = 0)
+    {
+        return nums.Length >= length ? true :
+            throw new Exception($"Array length less {length} is not allowed");
+    }
+
+    public int? getItemInteger()
     {
         return Result.Item1;
     }
 
-    public Double? getDouble()
+    public double? getItemDouble()
     {
         return Result.Item2;
     }
 
-    public String? getString()
+    public string? getItemString()
     {
         return Result.Item3;
     }
 
-    public Array? getArray()
+    public int[]? getItemArray()
     {
         return Result.Item4;
     }
