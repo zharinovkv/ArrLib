@@ -52,7 +52,7 @@ public class NumbersTest
     [DataTestMethod]
     public void testAverageNums(int[] nums, double expected)
     {
-        var numbers = new Numbers("averageNums", nums, 0);
+        var numbers = new Numbers("averageNums", nums);
         Assert.AreEqual(expected, numbers.getItemDouble());
     }
 
@@ -60,7 +60,7 @@ public class NumbersTest
     [DataTestMethod]
     public void testToString(int[] nums, string expected)
     {
-        var numbers = new Numbers("toString", nums, 0);
+        var numbers = new Numbers("toString", nums);
         Assert.AreEqual(expected, numbers.getItemString());
     }
 
@@ -68,10 +68,7 @@ public class NumbersTest
     [DataTestMethod]
     public void testOddNumsArray(int[] nums, int[] expected)
     {
-        var numbers = new Numbers("oddNumsArray", nums, 0);
+        var numbers = new Numbers("oddNumsArray", nums);
         CollectionAssert.AreEqual(expected, numbers.getItemArray());
     }
 }
-
-
-
