@@ -11,5 +11,3 @@ class Program
         Console.WriteLine(numbers.getItemInteger());
     }
 }
-
-
