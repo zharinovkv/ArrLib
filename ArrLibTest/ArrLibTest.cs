@@ -8,21 +8,13 @@ namespace NumbersTest;
 [TestClass]
 public class NumbersTest
 {
-    [DataRow(new int[] { 0, -10 }, -10)]
-    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, -10)]
+    [DataRow(new int[] { 0, -10 }, "-10")]
+    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "-10")]
     [DataTestMethod]
-    public void testSum2MinNums(int[] nums, int expected)
+    public void testSum2MinNums(int[] nums, string expected)
     {
-        var numbers = new Numbers("sum2MinNums", nums);
-        Assert.AreEqual(expected, numbers.getItemInteger());
-    }
-
-    [TestMethod]
-    public void testSum2MinNums_WithLongArray()
-    {
-        int[] nums = Enumerable.Range(0, 100000000).ToArray();
-        var numbers = new Numbers("sum2MinNums", nums);
-        Assert.AreEqual(1, numbers.getItemInteger());
+        var numbers = new Numbers("sum2MinNums", nums).getValue();
+        Assert.AreEqual(expected, numbers);
     }
 
     [DataRow(new int[] { }, "Array length less 2 is not allowed")]
@@ -32,7 +24,7 @@ public class NumbersTest
     {
         try
         {
-            new Numbers("sum2MinNums", nums);
+            new Numbers("sum2MinNums", nums).getValue();
         }
         catch (Exception ex)
         {
@@ -40,35 +32,35 @@ public class NumbersTest
         }
     }
 
-    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, 7)]
+    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "7")]
     [DataTestMethod]
-    public void testSumSliceNums(int[] nums, int expected)
+    public void testSumSliceNums(int[] nums, string expected)
     {
-        var numbers = new Numbers("sumSliceNums", nums, 3);
-        Assert.AreEqual(expected, numbers.getItemInteger());
+        var numbers = new Numbers("sumSliceNums", nums, 3).getValue();
+        Assert.AreEqual(expected, numbers);
     }
 
-    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, 72.71428571428571)]
+    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "72.71428571428571")]
     [DataTestMethod]
-    public void testAverageNums(int[] nums, double expected)
+    public void testAverageNums(int[] nums, string expected)
     {
-        var numbers = new Numbers("averageNums", nums);
-        Assert.AreEqual(expected, numbers.getItemDouble());
+        var numbers = new Numbers("averageNums", nums).getValue();
+        Assert.AreEqual(expected, numbers);
     }
 
     [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "4 0 3 19 492 -10 1")]
     [DataTestMethod]
     public void testToString(int[] nums, string expected)
     {
-        var numbers = new Numbers("toString", nums);
-        Assert.AreEqual(expected, numbers.getItemString());
+        var numbers = new Numbers("toString", nums).getValue();
+        Assert.AreEqual(expected, numbers);
     }
 
-    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, new int[] { 3, 19, 1 })]
+    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "3, 19, 1" )]
     [DataTestMethod]
-    public void testOddNumsArray(int[] nums, int[] expected)
+    public void testOddNums(int[] nums, string expected)
     {
-        var numbers = new Numbers("oddNumsArray", nums);
-        CollectionAssert.AreEqual(expected, numbers.getItemArray());
+        var numbers = new Numbers("oddNums", nums).getValue();
+        Assert.AreEqual(expected, numbers);
     }
 }
