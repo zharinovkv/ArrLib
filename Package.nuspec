@@ -2,17 +2,17 @@
 <package >
   <metadata>
     <id>Package</id>
-    <version>1.0.0</version>
-    <authors>knst</authors>
-    <owners>knst</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <version>2.0.0</version>
+    <authors>Konstantin Zharinov</authors>
+    <owners>Konstantin Zharinov</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/zharinovkv/ArrLib</projectUrl>
+    <iconUrl></iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Package description</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <description>Polimorfism library</description>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2023</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>Polimorfism Polimorfizm</tags>
     <dependencies>
       <dependency id="SampleDependency" version="1.0" />
     </dependencies>
