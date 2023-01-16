@@ -44,7 +44,7 @@ public class NumbersTest
     [DataTestMethod]
     public void testAverageNums(int[] nums, string expected)
     {
-        var numbers = new Numbers("averageNums", nums).getValue();
+        var numbers = new Numbers("averageNums", nums, 7).getValue();
         Assert.AreEqual(expected, numbers);
     }
 
@@ -52,15 +52,15 @@ public class NumbersTest
     [DataTestMethod]
     public void testToString(int[] nums, string expected)
     {
-        var numbers = new Numbers("toString", nums).getValue();
+        var numbers = new Numbers("toString", nums, 7).getValue();
         Assert.AreEqual(expected, numbers);
     }
 
-    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "3, 19, 1" )]
+    [DataRow(new int[] { 4, 0, 3, 19, 492, -10, 1 }, "3 19 1" )]
     [DataTestMethod]
     public void testOddNums(int[] nums, string expected)
     {
-        var numbers = new Numbers("oddNums", nums).getValue();
+        var numbers = new Numbers("oddNums", nums, 7).getValue();
         Assert.AreEqual(expected, numbers);
     }
 }
