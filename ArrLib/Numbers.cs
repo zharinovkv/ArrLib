@@ -2,26 +2,21 @@
 
 public class Numbers
 {
-    private Tuple<int?, double?, string?, int[]?>? Result;
+    private readonly string? Result = string.Empty;
 
-    private Dictionary<string, Func<int[], int, Tuple<int?, double?, string?, int[]?>?>> Funcs =
-        new Dictionary<string, Func<int[], int, Tuple<int?, double?, string?, int[]?>?>>
+    private Dictionary<string, Func<int[], int, string>> Funcs =
+        new Dictionary<string, Func<int[], int, string>>
     {
         {"sum2MinNums", (nums, slice) => isValidArray(nums, 2) ?
-            nums.OrderBy(n => n).Take(2).Sum().toTuple() :
-            null},
-        {"sumSliceNums", (nums, slice) => isValidArray(nums, slice) ?
-            nums.Take(slice).Sum().toTuple() :
-            null},
+            nums.OrderBy(n => n).Take(2).Sum().ToString() : ""},
+        {"sumSliceNums", (nums, slice) => isValidArray(nums, 1) ?
+            nums.Take(slice).Sum().ToString() : ""},
         {"averageNums", (nums, slice) => isValidArray(nums, 1) ?
-            nums.Average().toTuple() :
-            null},
+            nums.Take(slice).Average().ToString() : ""},
         {"toString", (nums, slice) => isValidArray(nums, 1) ?
-            string.Join(" ", nums).toTuple() :
-            null},
-        {"oddNumsArray", (nums, slice) => isValidArray(nums, 1) ?
-            nums.Where(n => n % 2 != 0).ToArray().toTuple() :
-            null}
+            String.Join(" ", nums.Take(slice)).ToString() : ""},
+        {"oddNums", (nums, slice) => isValidArray(nums, 1) ?
+            String.Join(" ", nums.Take(slice).Where(n => n % 2 != 0).ToArray()) : ""}
     };
 
     public Numbers(string func, int[] nums, int slice = 0)
@@ -42,23 +37,10 @@ public class Numbers
             throw new Exception($"Array length less {length} is not allowed");
     }
 
-    public int? getItemInteger()
+    public string getValue()
     {
-        return Result.Item1;
+        return this.Result;
     }
 
-    public double? getItemDouble()
-    {
-        return Result.Item2;
-    }
-
-    public string? getItemString()
-    {
-        return Result.Item3;
-    }
-
-    public int[]? getItemArray()
-    {
-        return Result.Item4;
-    }
 }
+
