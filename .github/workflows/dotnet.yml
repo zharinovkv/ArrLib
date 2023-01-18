@@ -26,5 +26,5 @@ jobs:
     - name: Publish on Nuget
       uses: brandedoutcast/publish-nuget@v2.5.2
       with:
-          PROJECT_FILE_PATH: /ArrLib/ArrLib.csproj
+          PROJECT_FILE_PATH: ArrLib/ArrLib.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}

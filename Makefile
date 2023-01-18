@@ -17,4 +17,4 @@ c:
 		sudo dotnet clean ArrLib.
 		
 g:
-        git push --set-upstream origin master
+		git push --set-upstream origin master
