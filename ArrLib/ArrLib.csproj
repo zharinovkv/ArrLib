@@ -4,6 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Package</PackageId>
+    <Version>2.0.0</Version>
+    <Authors>Konstantin Zharinov</Authors>
+    <Company>Konstantin Zharinov</Company>
+    <PackageProjectUrl>https://github.com/zharinovkv/ArrLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zharinovkv/ArrLib</RepositoryUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Polimorfism library</description>
+    <copyright>Copyright 2023</copyright>
   </PropertyGroup>
 
 </Project>
