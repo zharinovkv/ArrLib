@@ -14,4 +14,7 @@ f:
 		sudo dotnet format ArrLib.sln
 
 c:
-		sudo dotnet clean ArrLib.sln
+		sudo dotnet clean ArrLib.
+		
+g:
+        git push --set-upstream origin master
